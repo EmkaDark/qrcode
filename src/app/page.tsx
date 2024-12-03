@@ -1,95 +1,73 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import Layout from "../components/Layout";
+import Main from "..//components/Main";
+import Heading from "../components/Heading";
+import QRGroup from "../components/QRGroup";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
+import RenderData from "../components/RenderData";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <head>
+        <title>Генератор QR кода</title>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <meta
+          name="description"
+          content="Быстро и удобно создавайте QR-коды для текста, ссылок или других данных. Просто введите информацию и получите уникальный QR-код для использования в различных сферах."
+        />
+
+        <link rel="icon" href="/qrlogo.png" />
+
+        <meta property="og:title" content="Генератор QR кода" />
+        <meta
+          property="og:description"
+          content="Создавайте уникальные QR-коды для ваших ссылок, текстов и других данных. Простой и удобный инструмент для быстрой генерации QR-кодов."
+        />
+        <meta
+          name="keywords"
+          content="Генератор QR кода, генератор qr, qr код генератор, qr генератор онлайн, генератор qr кодов онлайн, создать qr, создать qr код, сгенерировать qr"
+        ></meta>
+        <meta property="og:url" content="https://itemka.ru/qrcode" />
+        <meta property="og:site_name" content="Генератор QR кода" />
+        <meta property="og:image" content="/qrlogo.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Генератор QR кода" />
+        <meta
+          name="subject"
+          content="Создание сайтов ,верстка,дизайн проектов!"
+        />
+        <meta name="copyright" content="Emka" />
+        <meta name="author" content="Emka Dark, nomad11kl.com" />
+        <meta name="designer" content="Svetlana" />
+        <meta name="reply-to" content="nomad11kl@mail.ru" />
+        <meta name="owner" content="Emka Dark" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileImage" content="/short.png" />
+      </head>
+      <Provider store={store}>
+        <Layout>
+          <Header></Header>
+
+          <Main>
+            <Heading></Heading>
+            <QRGroup></QRGroup>
+            <RenderData />
+          </Main>
+          <Footer></Footer>
+        </Layout>
+      </Provider>
+    </>
   );
 }

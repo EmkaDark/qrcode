@@ -1,0 +1,28 @@
+.qr_group {
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px;
+}
+.qr_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.qr_download {
+  display: inline-block;
+  padding: 10px 15px;
+  pointer-events: none;
+  border-radius: 50px;
+  background: black;
+  color: white;
+  margin-bottom: 30px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  &.active {
+    pointer-events: auto;
+  }
+}
